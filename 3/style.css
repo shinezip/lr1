@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("фон.png") no-repeat center top;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  overflow: hidden;
+  padding: 30px 0;
+}
+
+.logo {
+  float: left;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 160px; 
+}
+
+.contacts {
+  float: right;
+  text-align: right;
+  font-size: 14px;
+}
+
+main {
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.card {
+  width: 300px;
+  float: left;
+  margin: 10px;
+  position: relative;
+}
+
+.card a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.card:hover img {
+  border: 2px solid orange;
+}
+
+.card span {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  width: 96%;
+  background: orange;
+  color: white;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.highlight:hover .price-tag {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.view::after {
+  content: "→";
+  margin-left: 5px;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 40px;
+  color: #ccc;
+}

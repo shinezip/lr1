@@ -1,0 +1,277 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  color: #f1f1f1; /* Светло-серый */
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Helvetica', sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+/* Fullscreen Background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('fon.webp') no-repeat center center/cover;
+  z-index: -1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4); /* Прозрачность */
+  padding: 10px 20px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.icons {
+  display: flex;               /* используем flex для ровного ряда */
+  align-items: center;         /* вертикальное выравнивание по центру */
+  gap: 8px;                    /* расстояние между иконками */
+}
+
+.icons .icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 20px;
+}
+
+/* Для каждой иконки своя картинка */
+.icon.calendar {
+  background-image: url('free-icon-bell-3557778.png');
+}
+
+.icon.bell {
+  background-image: url('bell.png');
+}
+
+.icon.user {
+  background-image: url('user.png');
+}
+
+
+
+
+.auth-links a {
+  color: #fff;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.auth-links a.signup {
+  color: #0f0;
+}
+
+.auth-links a:hover {
+  color: #ccc;
+}
+
+/* Centered Form */
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 50px); /* За вычетом хедера */
+  padding-top: 50px;
+}
+
+.signup-form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Header */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-left {
+  display: flex;
+  align-items: center;
+}
+
+.green-square {
+  width: 10px;
+  height: 10px;
+  background: green;
+  margin-right: 10px;
+}
+
+.login-link {
+  font-size: 14px;
+  color: #0a0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #088;
+}
+
+/* Social Buttons */
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.facebook-btn,
+.google-btn {
+  flex: 1;
+  padding: 8px;
+  margin: 0 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.facebook-btn {
+  background: #3b5998;
+}
+
+.facebook-btn:hover {
+  background: #2d4373;
+}
+
+.google-btn {
+  background: #db4437;
+}
+
+.google-btn:hover {
+  background: #c23321;
+}
+
+.or-divider {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  border-color: #6c9;
+}
+
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Кастомный чекбокс */
+.custom-checkmark {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border: 2px solid #2a7;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.custom-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid #2a7;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Показываем галочку */
+.checkbox-container input:checked ~ .custom-checkmark::after {
+  display: block;
+}
+
+.checkbox-container:hover .custom-checkmark {
+  background-color: #f0f0f0;
+}
+
+.checkbox-container a {
+  color: #2a7;
+  margin-left: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2a7;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #24995f;
+}
