@@ -1,0 +1,75 @@
+/* Убираем отступы по умолчанию, задаем шрифт и центрируем текст */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #333;
+}
+
+/* Шапка — белая с отступами и нижней границей */
+header {
+  background: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Ссылки меню — отступы, цвет и размер */
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #00b3a6;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Фото вверху — на всю ширину и обрезка по высоте */
+.main-photo img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* Контент по центру с отступами и ограничением ширины */
+.content {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Заголовок — маленький размер и расстояние между буквами */
+.content h2 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Абзацы — читаемый размер и отступ снизу */
+.content p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Кнопка — фон, белый текст, закругления и без подчёркивания */
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #00b3a6;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+/* Подвал — серый фон, мелкий текст и отступ сверху */
+footer {
+  background: #f1f1f1;
+  padding: 20px 0;
+  font-size: 12px;
+  color: #777;
+  margin-top: 40px;
+  text-align: right; /* <-- вот это сдвигает текст вправо */
+  padding-right: 20px; /* отступ от края */
+}
+
