@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор</title>
+</head>
+<body>
+  <h1>check console</h1>
+
+  <script>
+    function getValidNumber(message, defaultValue = '') {
+      let value;
+      do {
+        value = prompt(message, defaultValue);
+      } while (value === null || value.trim() === '' || isNaN(value));
+      return +value;
+    }
+
+    function getValidOperation(message, defaultValue = '') {
+      let op;
+      const validOps = ['+', '-', '*', '/'];
+      do {
+        op = prompt(message, defaultValue);
+      } while (!validOps.includes(op));
+      return op;
+    }
+
+    function calculate(a, b, operation) {
+      switch (operation) {
+        case '+':
+          return a + b;
+        case '-':
+          return a - b;
+        case '*':
+          return a * b;
+        case '/':
+          return b !== 0 ? a / b : 'Ошибка: деление на ноль';
+        default:
+          return 'Неизвестная операция';
+      }
+    }
+
+    let num1 = getValidNumber("Введите первое число:");
+    let num2 = getValidNumber("Введите второе число:");
+    let operation = getValidOperation("Введите операцию (+, -, *, /):");
+
+    const result = calculate(num1, num2, operation);
+    console.log("Результат:", result);
+  </script>
+</body>
+</html>

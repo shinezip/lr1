@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Создание пользователя</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    input, button {
+      margin: 5px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Создание пользователя</h1>
+  <div id="output">Логин будет выведен здесь...</div>
+
+  <h2>Изменить имя или фамилию</h2>
+  <label>
+    Новое имя:
+    <input type="text" id="newFirstName" />
+  </label>
+  <label>
+    Новая фамилия:
+    <input type="text" id="newLastName" />
+  </label>
+  <button onclick="updateName()">Обновить имя и фамилию</button>
+
+  <script>
+    function createNewUser() {
+      const firstNameInput = prompt("Введите имя:");
+      const lastNameInput = prompt("Введите фамилию:");
+
+      let _firstName = firstNameInput;
+      let _lastName = lastNameInput;
+
+      const newUser = {};
+
+      Object.defineProperty(newUser, "firstName", {
+        get: function () {
+          return _firstName;
+        },
+        enumerable: true
+      });
+
+      Object.defineProperty(newUser, "lastName", {
+        get: function () {
+          return _lastName;
+        },
+        enumerable: true
+      });
+
+      newUser.getLogin = function () {
+        return (this.firstName[0] + this.lastName).toLowerCase();
+      };
+
+      newUser.setFirstName = function (newFirstName) {
+        if (newFirstName) _firstName = newFirstName;
+      };
+
+      newUser.setLastName = function (newLastName) {
+        if (newLastName) _lastName = newLastName;
+      };
+
+      return newUser;
+    }
+
+    const user = createNewUser();
+    const outputDiv = document.getElementById("output");
+
+    function displayLogin() {
+      const login = user.getLogin();
+      console.log("Логин пользователя:", login);
+      outputDiv.textContent = `Логин пользователя: ${login}`;
+    }
+
+    function updateName() {
+      const newFirst = document.getElementById("newFirstName").value.trim();
+      const newLast = document.getElementById("newLastName").value.trim();
+      if (newFirst) user.setFirstName(newFirst);
+      if (newLast) user.setLastName(newLast);
+      displayLogin();
+    }
+
+    displayLogin();
+  </script>
+</body>
+</html>
